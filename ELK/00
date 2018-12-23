@@ -10,8 +10,8 @@ cluster.name: moshimoshi
 http.port: 9200
 xpack.security.transport.ssl.enabled: true
 xpack.security.transport.ssl.verification_mode: certificate
-xpack.security.transport.ssl.keystore.path: /Users/khondhu/Desktop/elastic/workSpace/v630/elasticsearch-6.3.0/config/elastic-certificates.p12
-xpack.security.transport.ssl.truststore.path: /Users/khondhu/Desktop/elastic/workSpace/v630/elasticsearch-6.3.0/config/elastic-certificates.p12
+xpack.security.transport.ssl.keystore.path: /Users/khondo/Desktop/elastic/workSpace/v630/elasticsearch-6.3.0/config/elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: /Users/khondo/Desktop/elastic/workSpace/v630/elasticsearch-6.3.0/config/elastic-certificates.p12
 $ bin/elasticsearch &
 $ bin/kibana &
 
