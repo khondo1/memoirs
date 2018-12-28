@@ -43,6 +43,7 @@ bash -x
 ls | xargs -0
 for i in 192.168.0.1 192.168.1.1 192.168.2.1; do host $i; done
 python -c "print('hello bob')"
+python -c 'import pty;pty.spawn("/bin/bash")'
 ls | fold -w17
 ls | tee
 atime aka ls -l
@@ -109,6 +110,12 @@ kextstat | grep crow
 ps -ax |grep -i sen
 pkgutil --pkgs |grep sen
 
+nc -nvlp 9998
+n - dont resolve
+v - verbose
+l - listen incoming
+p - port
+telnet localhost 9998
 
 //wireshark && tshark filters
 kerberos.cname
@@ -131,11 +138,20 @@ tcp.flags.syn == 1 and tcp.flags.ack == 0
 tshark -r traffic-analysis-exercise.pcap -T fields -e ip.dst -e ip.src -e eth.dst -e eth.src | sort | uniq |grep -i 10.0.0.201 --color
 -T fields -e ip.src -e dns.qry.name -2R "dns.flags.response eq 0" | awk -F" " '{ print $2 }' | sort -u
 -T fields -e ip.src -e dns.qry.name -2R "dns.flags.response eq 0"
-tshark -r traffic-analysis-exercise.pcap -Y http.request -T fields -e http.host
-tshark -r traffic-analysis-exercise.pcap -Y http.request -T fields -e http.host -e http.user_agent
-tshark -r traffic-analysis-exercise.pcap -T fields -e eth.dst eth.src |sort |uniq
-tshark -r traffic-analysis-exercise.pcap -T fields -e ip.src -e dns.qry.name |sort |uniq
-tshark -r traffic-analysis-exercise.pcap -Y "smb.cmd==0x73"
+-Y http.request -T fields -e http.host
+-Y http.request -T fields -e http.host -e http.user_agent
+-T fields -e eth.dst eth.src |sort |uniq
+-T fields -e ip.src -e dns.qry.name |sort |uniq
+-Y "smb.cmd==0x73"
+
+//pass
+sansforensics:forensics
+msfadmin:msfadmin
+kali:toor
+remnux:forensics
+infected
+malware
+forensics
 
 
 
