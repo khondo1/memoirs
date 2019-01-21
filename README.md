@@ -173,9 +173,9 @@ t display speficied to terminal devices
 e other users w/o terminals
 f uid, pid, parent pid, cpu, etc
 
-ps -u jymi4098
-ps -ef |grep jymi4098
-ps -fp $(pgrep -u jymi4098)
+ps -u kond4098
+ps -ef |grep kond4098
+ps -fp $(pgrep -u kond4098)
 md5
 md5sum
 openssl md5 <file>
@@ -203,7 +203,7 @@ decompress:
 
 echo emotet@hotmail.com | base64
 ZW1vdGV0QGhvdG1haWwuY29tCg==
-MVM35NG8WN:ASM jymi4098$ ec
+kond4098$ ec
 emotet@hotmail.com
 
 echo -n 'khondo' | openssl base64
