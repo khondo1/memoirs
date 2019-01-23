@@ -340,13 +340,13 @@ strings hello2
 tcpdump Flags:
 
 TCP Flag	tcpdump Flag	Meaning
-SYN	S	Syn packet, a session establishment request.
-ACK	A	Ack packet, acknowledge sender’s data.
-FIN	F	Finish flag, indication of termination.
-RESET	R	Reset, indication of immediate abort of conn.
-PUSH	P	Push, immediate push of data from sender.
-URGENT	U	Urgent, takes precedence over other data.
-NONE	A dot .	Placeholder, usually used for ACK.
+SYN	[S]	Syn packet, a session establishment request.
+ACK	[A]	Ack packet, acknowledge sender’s data.
+FIN	[F]	Finish flag, indication of termination.
+RESET	[R]	Reset, indication of immediate abort of conn.
+PUSH	[P]	Push, immediate push of data from sender.
+URGENT	[U]	Urgent, takes precedence over other data.
+NONE	A dot [.]	Placeholder, usually used for ACK.
 ```
 
 .
