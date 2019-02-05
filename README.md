@@ -265,6 +265,8 @@ tshark -r traffic-analysis-exercise.pcap -T fields -e ip.dst -e ip.src -e eth.ds
 -T fields -e ip.src -e dns.qry.name |sort |uniq
 -Y "smb.cmd==0x73"
 
+tshark -r infile -T fields -e data -w outfile.raw
+tshark -r infile -T fields -e data.data -w outfile.raw
 //pass
 sansforensics:forensics
 msfadmin:msfadmin
