@@ -267,6 +267,8 @@ tshark -r traffic-analysis-exercise.pcap -T fields -e ip.dst -e ip.src -e eth.ds
 
 tshark -r infile -T fields -e data -w outfile.raw
 tshark -r infile -T fields -e data.data -w outfile.raw
+tshark -r file.pcap -z conv,tcp
+
 //pass
 sansforensics:forensics
 msfadmin:msfadmin
