@@ -159,6 +159,9 @@ pkgutil --pkg-info com.sentinelone.pkg.sentinel-agent
 ^ get epoch from there and put it in below.
 date -r 1540456364
 
+echo 1551871076.449760000 | perl -pe 's/(\d+)/localtime($1)/e'
+Wed Mar  6 11:17:56 2019.449760000
+
 egrep '^[^#]+'
 
 sentinel1=`pkgutil --pkg-info com.sentinelone.pkg.sentinel-agent |grep install-time | awk '{print $2}' `
